@@ -1,1 +1,0 @@
-Kustuta mind peale esimest nädalat.
