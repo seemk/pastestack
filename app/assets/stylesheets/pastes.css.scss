@@ -1,33 +1,8 @@
-html {
-	
- 	background-color:#7F7F7F;
-    font-size: 0.8em;
-    font-family: Verdana, Arial;
-	min-width:700px
-}
+// Place all the styles related to the Pastes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
-#pealkiri    {
-    margin: 0px;
-    float: right;
-    font-size: 3.6em;
-    color:#ffc493;
-}
 
-.headerReg .field label { 
-    margin-bottom:5px; 
-    display:inline-block; 
-    width:80px; 
-    margin-left:5px; 
-    color:#93fffb;
-}
-
-.headerReg .field input { 
-    margin-bottom:5px; 
-    display:inline-block; 
-    background-color:#7F7F7F; 
-    color:#93fffb;}
-
- 
 .mainPasting .field input { 
     margin-left:5px; 
     margin-bottom:5px; 
@@ -42,9 +17,9 @@ html {
     color:#93fffb; }
 
 .mainPasting .field textarea{
-	resize: none;
-	float:left;
-	margin-top:16px;
+    resize: none;
+    float:left;
+    margin-top:16px;
     margin-left:5px;
     width:70%; 
     height:400px;
@@ -53,9 +28,9 @@ html {
 }
 
 .historystack .historytable {
-	float:right;
+    float:right;
     height:400px;
-	width:28%;
+    width:28%;
     display:block;
     border-style:solid;
     color:#93fffb;
@@ -63,8 +38,8 @@ html {
 }
 
 .search input {
-	 float:left;
-	 display:inline-block;
+     float:left;
+     display:inline-block;
      margin-left:5px; 
      color:#93fffb;
      background-color:#7F7F7F;

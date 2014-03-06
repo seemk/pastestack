@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
  */
+html {
+    
+    background-color:#7F7F7F;
+    font-size: 0.8em;
+    font-family: Verdana, Arial;
+    min-width:700px
+}
+
+#pealkiri    {
+    margin: 0px;
+    float: right;
+    font-size: 3.6em;
+    color:#ffc493;
+}
+
+.headerReg .field label { 
+    margin-bottom:5px; 
+    display:inline-block; 
+    width:80px; 
+    margin-left:5px; 
+    color:#93fffb;
+}
+
+.headerReg .field input { 
+    margin-bottom:5px; 
+    display:inline-block; 
+    background-color:#7F7F7F; 
+    color:#93fffb;}

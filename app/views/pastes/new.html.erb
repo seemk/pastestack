@@ -1,33 +1,5 @@
-<!DOCTYPE HTML>            
-<html>            
-<head>           
- 
-<title>pastestack</title>            
-<meta name="description" content="lets paste to stack" />            
-<meta name="keywords" content="paste,paste,paste" />            
-<meta name="author" content="Erki Viidalepp" />
-<meta charset="UTF-8" />        
-<link rel="stylesheet" href="style.css" type="text/css" media="all" /> 
-</head>            
-<body>
-	<header>
-      <h1 id="pealkiri">pastestack</h1>
-		<form class="headerReg" action="midagi.php.js.vms" method="post" autocomplete="on">
-			<div class="field">
-                <label>email: </label>
-                <input name="ekiri" type="email" size=30 required>
-                <input name="log in" value="log" type="submit">
-            </div>
-            <div class="field">
-                <label>password: </label>
-                <input name="parool" type="password" size=30 required> 
-                <input name="register" value="reg"  type="submit">			
-            </div>
-        </form>
-    </header>
-    <p></p>                
-    <div class="mainPasting">
-		<form class="field" action="midagi.php.js.vms" method="post">
+<div class="mainPasting">
+        <form class="field" action="midagi.php.js.vms" method="post">
             <input class="title" name="title" type="text" size=50 placeholder="- title -" required><br>
             <select>
                 <option value="">- syntax -</option>
@@ -53,32 +25,19 @@
                 <option value="private">private</option>
             </select> 
             <input type="submit" value="push( )"> <br>
-			<textarea placeholder="- paste -" required></textarea><br>
+            <textarea placeholder="- paste -" required></textarea><br>
         </form>
     </div>
     <div class="historystack">
         <table class="historytable">
            <caption>stack</caption>
              <tbody>
-                <tr>
-                    <td>that paste</td>
-                </tr>
-                <tr>
-                    <td>such paste</td>
-                </tr>
-                <tr>
-                    <td>more paste</td>
-                </tr>
-                <tr>
-                    <td>much paste</td>
-                </tr>
             </tbody>
         </table>        
-	</div>
+    </div>
     <div class="search">
         <form>
           <input name="search" type="search" size=50 placeholder="- search -" required>
           <input type="submit" value="find from stack">
         </form>
     </div>
-</body>
