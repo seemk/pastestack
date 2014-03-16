@@ -11,31 +11,42 @@
  *= require_self
  *= require_tree .
  */
-html {
-    
-    background-color:#7F7F7F;
+ body {
+ 
+	background-color:#FFFFFF;
     font-size: 0.8em;
     font-family: Verdana, Arial;
-    min-width:700px
+	margin: 0 auto;
+	width: 800px;
+	padding-top:10px;
 }
-
-#pealkiri    {
+ 
+h1   {
+	display: inline-block; 
     margin: 0px;
-    float: right;
+	padding-left:5px;
+    float: left;
     font-size: 3.6em;
-    color:#ffc493;
+    color:#FF6400;
+    line-height:35px;
 }
-
-.headerReg .field label { 
-    margin-bottom:5px; 
-    display:inline-block; 
-    width:80px; 
-    margin-left:5px; 
-    color:#93fffb;
+ 
+#loginform {
+	float:right;
 }
-
-.headerReg .field input { 
-    margin-bottom:5px; 
-    display:inline-block; 
-    background-color:#7F7F7F; 
-    color:#93fffb;}
+.inputreg  {
+	display: inline-block; 
+	padding-left:5px;
+	border: 0px;
+}
+.inputreg label {
+	display: inline-block;
+	width: 70px; 
+	text-align: right;
+}
+.inputreg .kast{
+    width: 200px; 
+}
+.inputreg .nupp{
+    width: 50px; 
+}

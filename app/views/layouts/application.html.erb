@@ -7,24 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <header>
-      <h1 id="pealkiri">pastestack</h1>
-        <form class="headerReg" action="midagi.php.js.vms" method="post" autocomplete="on">
-            <div class="field">
-                <label>email: </label>
-                <input name="ekiri" type="email" size=30 required>
-                <input name="log in" value="log" type="submit">
-            </div>
-            <div class="field">
-                <label>password: </label>
-                <input name="parool" type="password" size=30 required> 
-                <input name="register" value="reg"  type="submit">          
-            </div>
-        </form>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
+<div>
+	<header>
+		<form action="midagi.php.js.vms" method="post" autocomplete="on">
+			<div>
+			<h1> pastestack </h1>
+			</div>
+			<div id="loginform">
+			<div class="inputreg">
+				<label>email: </label>
+				<input class="kast" name="ekiri" type="email" required />
+				<input class="nupp" name="log in" value="log" type="submit" />
+			</div>
+			<br>
+			<div class="inputreg">
+				<label>password: </label>
+				<input class="kast" name="parool" type="password" required /> 
+				<input class="nupp" name="register" value="reg"  type="submit" />			
+			</div>
+			</div>
+		</form>
+		<br>
+   	</header>
+</div>
 </body>
 </html>
        

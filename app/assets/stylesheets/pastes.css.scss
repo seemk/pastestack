@@ -3,44 +3,63 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.mainPasting .field input { 
-    margin-left:5px; 
-    margin-bottom:5px; 
-    background-color:#7F7F7F; 
-    color:#93fffb; }
-
-.mainPasting .field select { 
-    margin-left:5px; 
-    margin-bottom:5px; 
-    width:100px; 
-    background-color:#7F7F7F; 
-    color:#93fffb; }
-
-.mainPasting .field textarea{
-    resize: none;
-    float:left;
-    margin-top:16px;
-    margin-left:5px;
-    width:70%; 
-    height:400px;
-    background-color:#7F7F7F; 
-    color:#93fffb; 
+#mainFrame {
+	float:left;
+	width:70%;
+	min-width: 369px;
+	padding-left:5px;
+	padding-right:2px;
+	padding-top:10px;
+	border: 0px;
+	vertical-align: baseline;
+	height:100%;
 }
 
-.historystack .historytable {
-    float:right;
-    height:400px;
-    width:28%;
-    display:block;
-    border-style:solid;
-    color:#93fffb;
-    background-color:#7F7F7F;
-}
+#mainFrame  #title { 
+	width: 100%;
+    margin-bottom:5px; 
 
-.search input {
-     float:left;
-     display:inline-block;
-     margin-left:5px; 
-     color:#93fffb;
-     background-color:#7F7F7F;
+} 
+#mainFrame select{ 
+    width:100px;
+	margin-bottom:5px; 
+  }
+#mainFrame input{
+	width:60px;
+	margin-bottom:5px; 
+}
+#mainFrame textarea {
+	float:left;
+    min-height: 400px;
+	width: 100%;
+	height:100%;
+	resize: none;
+    
+}
+   
+#search {
+	clear:both;
+	padding-top:10px;
+}
+#search  #field{
+	width: 75%;
+	float:left;
+ }
+#search  #button{
+	width: 23%;
+	float:right;
+}
+#sideFrame{
+ 	float:right;
+	width:27%;
+	padding-left:2px;
+	padding-right:5px;
+	padding-top:10px;
+	border: 0px;
+	vertical-align: baseline;
+	height:100%;
+}
+#historyTable{
+	width:100%;
+	height:100%;
 }
