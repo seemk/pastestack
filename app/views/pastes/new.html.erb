@@ -1,59 +1,63 @@
 <div id="mainFrame">
-			<form action="midagi.php.js.vms" method="post">
-				<div>
-				<input id="title" name="title" type="text" placeholder="- title -" required> 
-				</div>
-				<div>
-				<select id="syntax" name="syntax">
-					<option value="1">- syntax -</option>
-					<option value="synt_c">c</option>
-					<option value="synt_java">java</option>
-					<option value="synt_python">python</option>
-					<option value="synt_ruby">ruby</option>
-					<option value="synt_haskell">haskell</option>
-				</select>
-				<select id="expiration" name="expiration">
-					<option value="1">- expiration -</option>
-					<option value="hour">1 hour</option>
-					<option value="2hour">2 hours</option>
-					<option value="day">1 day</option>
-					<option value="week">1 week</option>
-					<option value="month">1 month</option>
-					<option value="year">1 year</option>
-				</select>  
-				<select id="exposure" name="exposure">
-					<option value="1">- exposure -</option>
-					<option value="public">public</option>
-					<option value="unlisted">unlisted</option>
-					<option value="private">private</option>
-				</select> 
-				<input type="submit" value="push( )"> <br>
-				</div>
-				<textarea placeholder="- paste here -" required></textarea><br>
-		 
-			</form>
-		<div id="search">
-			<form>
-			  <input id="field" type="search" name="search" placeholder="- search -" required>
-			  <input id="button" type="submit" value="find from stack">
-			</form>
-		</div>
-	</div>
-	<div id="sideFrame">
-		<table id="historyTable">
-			<tbody>
-				<tr>
-					<td>that paste</td>
-				</tr>
-				<tr>
-					<td>such paste</td>
-				</tr>
-				<tr>
-					<td>more paste</td>
-				</tr>
-				<tr>
-					<td>much paste</td>
-				</tr>
-			</tbody>
-		</table>        
-	</div>
+    <form action="0" method="post">
+        <div>
+            <input id="title" name="title" type="text" placeholder="- title -" required> 
+        </div>
+        <div>
+            <select id="syntax" name="syntax">
+                <option value="1">- syntax -</option>
+                <option value="synt_c">c</option>
+                <option value="synt_java">java</option>
+                <option value="synt_python">python</option>
+                <option value="synt_ruby">ruby</option>
+                <option value="synt_haskell">haskell</option>
+            </select>
+            <select id="expiration" name="expiration">
+                <option value="1">- expiration -</option>
+                <option value="hour">1 hour</option>
+                <option value="2hour">2 hours</option>
+                <option value="day">1 day</option>
+                <option value="week">1 week</option>
+                <option value="month">1 month</option>
+                <option value="year">1 year</option>
+            </select>  
+            <select id="exposure" name="exposure">
+                <option value="1">- exposure -</option>
+                <option value="public">public</option>
+                <option value="unlisted">unlisted</option>
+                <option value="private">private</option>
+            </select> 
+
+            <input type="submit" value="push( )"> <br>
+
+        </div>
+        
+        <textarea placeholder="- paste here -" required></textarea><br>
+        
+    </form>
+    <div id="search">
+        <form>
+            <input id="field" type="search" name="search" placeholder="- search -" required>
+            <input id="button" type="submit" value="find from stack">
+        </form>
+    </div>
+
+</div>
+<div id="sideFrame">
+        <table id="historyTable">
+            <tbody>
+                <tr>
+                    <td>that paste</td>
+                </tr>
+                <tr>
+                    <td>such paste</td>
+                </tr>
+                <tr>
+                    <td>more paste</td>
+                </tr>
+                <tr>
+                    <td>much paste</td>
+                </tr>
+            </tbody>
+        </table>        
+</div>
