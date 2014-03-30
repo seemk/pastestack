@@ -1,4 +1,5 @@
 Pastestack::Application.routes.draw do
+  get "users/new"
   get "pastes/new"
 
   root 'pastes#new'
