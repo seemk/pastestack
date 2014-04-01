@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     before_save { email.downcase! }
+    before_create :create_token
     
     VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, uniqueness: { case_sensitive: false }, presence: true, 
@@ -7,4 +8,18 @@ class User < ActiveRecord::Base
 
     has_secure_password
     validates :password, length: { minimum: 6 }
+
+    def User.new_token
+        SecureRandom.urlsafe_base64
+    end
+
+    def User.hash(token)
+        Digest::SHA1.hexdigest(token.to_s)
+    end
+
+    private
+
+    def create_token
+        self.token = User.hash(User.new_token)
+    end
 end

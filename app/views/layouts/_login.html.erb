@@ -1,18 +1,16 @@
-<form action="midagi.php.js.vms" method="post" autocomplete="on">
-    <div>
-        <h1> pastestack </h1>
-    </div>
-    <div id="loginform">
-        <div class="inputreg">
-            <label>email: </label>
-            <input class="kast" name="ekiri" type="email" required />
-            <input class="nupp" name="log in" value="log" type="submit" />
-        </div>
-        <br>
-        <div class="inputreg">
-            <label>password: </label>
-            <input class="kast" name="parool" type="password" required /> 
-            <input class="nupp" name="register" value="reg"  type="submit" />           
-        </div>
-    </div>
-</form>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Log in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>
