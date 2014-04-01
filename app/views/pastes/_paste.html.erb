@@ -1,3 +1,9 @@
 <li>
   <%= link_to paste.title, paste %>
+  by
+  <% if paste.user %>
+  <%= paste.user.name %>
+  <% else %>
+  <%= "Anoynymous" %>
+  <% end %>
 </li>

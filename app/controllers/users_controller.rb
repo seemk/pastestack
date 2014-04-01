@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-    
-    before_action :signed_in_user, only: [:edit, :update]
+    before_action :store_location
+    before_action :signed_in_user, only: [:edit, :update, :index]
     before_action :correct_user, only: [:edit, :update]
-    before_action :admin_user, only: :destroy
+    before_action :admin_user, only: [:destroy, :index]
 
     def new
         @user = User.new
@@ -31,7 +31,12 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @pastes = @user.pastes
+        if signed_in? && (current_user.admin? || !current_user?(@user))
+            @pastes = @user.pastes
+        else
+            @pastes = @user.pastes.where{exposure == 1}
+        end
+        
     end
 
     def create

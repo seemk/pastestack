@@ -18,9 +18,16 @@ class User < ActiveRecord::Base
         Digest::SHA1.hexdigest(token.to_s)
     end
 
+    def public_pastes
+        Paste.where{user_id == params[:id] && exposure == 1}
+    end
+
     private
 
     def create_token
         self.token = User.hash(User.new_token)
     end
+
+
+
 end

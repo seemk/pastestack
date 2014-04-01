@@ -1,5 +1,6 @@
 class PastesController < ApplicationController
-
+    before_action :store_location
+    
     def new
         @paste = Paste.new
     end

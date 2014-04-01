@@ -4,3 +4,8 @@
 <ul class="pastes">
   <%= render @pastes %>
 </ul>
+
+<% if signed_in? %>
+<h1>My pastes</h1>
+<%= render current_user.pastes %>
+<% end %>

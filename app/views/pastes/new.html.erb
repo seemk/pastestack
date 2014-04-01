@@ -9,15 +9,12 @@
       <%= f.select(:expiration, [['1 day', 1.days.from_now], ['1 week', 1.week.from_now], ['1 month', 1.month.from_now], ['Never', 1000.years.from_now]]) %>
 
       <%= f.select(:exposure, [['Public', 1], ['Private', 0]]) %>
-      <%= f.text_area :content, :placeholder => "- paste here -" %>
+      <%= f.text_area :content, :placeholder => "- paste here -", :required => true %>
       <%= f.submit "push()" %>
     <% end %>
 
     <div id="search">
-        <form>
-            <input id="field" type="search" name="search" placeholder="- search -" required>
-            <input id="button" type="submit" value="find from stack">
-        </form>
+        <%= render 'search' %>
     </div>
 
 </div>
