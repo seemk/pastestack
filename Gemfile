@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'sprockets', '2.11.0'
+gem 'squeel'
 
 group :development, :test do
     gem 'sqlite3'

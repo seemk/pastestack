@@ -8,7 +8,7 @@
 </head>
 <body>
     <% if signed_in? %>
-        Welcome, <%= current_user.email %>
+        Welcome, <%= current_user.name %>
         <%= link_to "Sign out", logout_path, method: "delete" %>
     <% else %>
         <%= render 'layouts/login' %>
