@@ -8,6 +8,7 @@ Pastestack::Application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
+  match '/villains', to: 'villains#list', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
