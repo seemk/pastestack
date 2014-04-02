@@ -15,11 +15,8 @@ uri = scheme + window.document.location.host + "/"
 ws = new WebSocket(uri)
 
 ws.onmessage = (message) ->
-  console.log(message)
   data = JSON.parse(message.data)
   paste_title = data["title"]
   newLink = "<a href=\"/pastes/#{paste_title}\">#{paste_title}</a>"
-  console.log(newLink)
-  console.log("WAT: #{newLink}")
   $("#historyTable tbody").prepend "<tr><td>#{newLink}</td></tr>"
   return
