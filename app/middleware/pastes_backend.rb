@@ -13,7 +13,7 @@ module LiveUpdate
       @app     = app
       @clients = []
       
-      redis_path = Rails.env.development? ? APP_CONFIG['redis_url'] : Rails.env['redis_url']
+      redis_path = Rails.env.development? ? APP_CONFIG['redis_url'] : ENV['redis_url']
       uri = URI.parse(redis_path)
 
       Rails.application.pastes_publisher = self
