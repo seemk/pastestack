@@ -7,13 +7,12 @@ module LiveUpdate
   class PastesBackend
     KEEPALIVE_TIME = 15 # in seconds
     CHANNEL        = "paste-updates"
-    APP_CONFIG = YAML::load_file(Rails.root + "config/config.yml")[Rails.env] if Rails.env.development?
 
     def initialize(app)
       @app     = app
       @clients = []
       
-      redis_path = APP_CONFIG.nil? ? ENV['redis_url'] : APP_CONFIG['redis_url']
+      redis_path = Rails.env.production? ? ENV['redis_url'] : 'localhost:6379'
       uri = URI.parse(redis_path)
 
       Rails.application.pastes_publisher = self
