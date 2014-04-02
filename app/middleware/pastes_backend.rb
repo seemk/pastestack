@@ -12,7 +12,7 @@ module LiveUpdate
       @app     = app
       @clients = []
       
-      redis_path = Rails.env.production? ? ENV['redis_url'] : 'localhost:6379'
+      redis_path = Rails.env.production? ? ENV['REDISCLOUD_URL'] : 'localhost:6379'
       uri = URI.parse(redis_path)
 
       Rails.application.pastes_publisher = self
