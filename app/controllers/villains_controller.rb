@@ -1,4 +1,6 @@
 class VillainsController < ApplicationController
+    before_action :store_location
+    
     def list
         swears = list_swears
         @villains = User.joins(:pastes).where{pastes.content.like_any swears}.group{id}
