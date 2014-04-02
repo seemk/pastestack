@@ -6,6 +6,9 @@ gem 'bcrypt-ruby'
 gem 'bootstrap-sass'
 gem 'sprockets', '2.11.0'
 gem 'squeel'
+gem 'redis'
+gem 'faye-websocket'
+gem 'puma'
 
 group :development, :test do
     gem 'sqlite3'

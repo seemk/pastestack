@@ -7,6 +7,8 @@ class Paste < ActiveRecord::Base
     validates :title, uniqueness: { case_sensitive: false }
     validates :expiration, presence: true
 
+    after_save :notify_publisher
+
     def to_param
         title
     end
@@ -22,5 +24,10 @@ private
 
     def convert_time
         self.expiration = self.expiration.to_datetime
+    end
+
+    def notify_publisher
+        publisher = Rails.application.pastes_publisher
+        publisher.send_json_msg(self.to_json) unless publisher.nil?
     end
 end

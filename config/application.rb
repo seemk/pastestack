@@ -11,8 +11,14 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+
+
 module Pastestack
   class Application < Rails::Application
+
+    # Might not be the best idea to add the pastes backend here
+    attr_accessor :pastes_publisher
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -25,5 +31,9 @@ module Pastestack
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
   end
 end
+
+
+

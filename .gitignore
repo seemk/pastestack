@@ -13,3 +13,6 @@ doc/
 .secret
 bundler_stubs/
 public/assets/
+
+# Do not remove
+config/config.yml
