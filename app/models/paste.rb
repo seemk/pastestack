@@ -7,6 +7,14 @@ class Paste < ActiveRecord::Base
     validates :title, uniqueness: { case_sensitive: false }
     validates :expiration, presence: true
 
+    def to_param
+        title
+    end
+
+    def self.find(input)
+        find_by_title(input)
+    end
+
 private
     def random_title
         self.title = (0...10).map { ('a'..'z').to_a[rand(26)] }.join if self.title.empty?

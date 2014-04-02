@@ -3,7 +3,6 @@ Pastestack::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :pastes
   get "pastes/new"
-
   root 'pastes#new'
   match '/search', to: 'searches#search', via: 'get'
   match '/signup', to: 'users#new', via: 'get'

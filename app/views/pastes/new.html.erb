@@ -16,23 +16,15 @@
     <div id="search">
         <%= render 'search' %>
     </div>
-
 </div>
+
 <div id="sideFrame">
+        Recently pasted:
         <table id="historyTable">
             <tbody>
-                <tr>
-                    <td>that paste</td>
-                </tr>
-                <tr>
-                    <td>such paste</td>
-                </tr>
-                <tr>
-                    <td>more paste</td>
-                </tr>
-                <tr>
-                    <td>much paste</td>
-                </tr>
+              <% recent_pastes.each do |p| %>
+              <tr><td> <%= link_to p.title, p %> </td></tr>
+              <% end %>
             </tbody>
         </table>        
 </div>

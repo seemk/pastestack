@@ -13,7 +13,7 @@ class PastesController < ApplicationController
         end
         
         if @paste.save
-            render 'show'
+            redirect_to @paste
         else
             render 'new'
         end
