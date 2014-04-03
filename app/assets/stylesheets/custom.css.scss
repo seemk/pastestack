@@ -6,7 +6,7 @@
 
 .row   {
 position:relative;
-background-color:#E6E6E6;
+background-color:#FFFFFF;
     padding-top: 5px;
 padding-left: 20px;
     margin: 0px auto;
@@ -17,8 +17,22 @@ padding-left: 20px;
    
 }
 
+#signup_form {
+ padding-left:0px;
+ width:780px;
+}
+
+#signup_form .btn {
+
+ 
+    top:65px;
+    left:250px;
+    width:250px;
+ 
+}
+
 .container {
-    background-color:#E6E6E6;
+    background-color:#FFFFFF;
     font-size: 1.0em;
     font-family: Verdana, Arial;
     margin: 0px auto;
@@ -30,7 +44,7 @@ padding-left: 20px;
 
 
 .footer {
-    background-color:#E6E6E6;
+    background-color:#FFFFFF;
 width: 800px;    
 margin-left: auto;
     margin-right: auto;
@@ -51,7 +65,7 @@ margin-left: auto;
 }
  
 .nologin {
-background-color:#E6E6E6;
+background-color:#FFFFFF;
 width: 800px;    
 margin-left: auto;
     margin-right: auto;
