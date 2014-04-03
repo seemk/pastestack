@@ -3,14 +3,15 @@
 <head>
   <title>Pastestack</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application",
-    "data-turbolinks-track" => true, :async => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
     <% if signed_in? %>
-        Welcome, <%= current_user.name %>
+	<div class="nologin">
+        Welcome, <%= current_user.name %>!
         <%= link_to "Sign out", logout_path, method: "delete" %>
+	</div>
     <% else %>
         <%= render 'layouts/login' %>
     <% end %>
