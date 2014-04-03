@@ -1,2 +1,7 @@
-<p1>VILLAINS a.k.a. people who swear</p1>
-<%= render @villains %>
+<p1 id="villains_title">VILLAINS a.k.a. people who swear</p1>
+<br/>
+<% if @villains.empty? %>
+    Everyone is well mannered!
+<% else %>
+    <%= render @villains %>
+<% end %>

@@ -1,11 +1,10 @@
-<% provide(:title, 'Public pastes') %>
-<h1>Public pastes</h1>
-
-<ul class="pastes">
-  <%= render @pastes %>
-</ul>
+<% provide(:title, 'Pastes') %>
 
 <% if signed_in? %>
 <h1>My pastes</h1>
 <%= render current_user.pastes %>
 <% end %>
+
+<h1>Public pastes</h1>
+
+<%= render @pastes %>
