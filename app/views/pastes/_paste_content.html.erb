@@ -1,7 +1,7 @@
 Paste: <%= @paste.title %>
 Expires: <%= @paste.expiration %>
 Exposure: <%= exposure_str(@paste) %>
-Content:
+
 <div class="paste_content">
     <ol class="content_list">
         <% content_lines(@paste).each_with_index do |line, i| %>

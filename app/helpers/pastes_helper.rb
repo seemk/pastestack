@@ -18,5 +18,13 @@ module PastesHelper
     def recent_pastes
         Paste.where{exposure >= 1}.last(20).reverse
     end
+
+    def exposure_selection
+        if signed_in?
+            [['Public', 1], ['Private', 0]]
+        else
+            [['Public', 1]]
+        end
+    end
     
 end

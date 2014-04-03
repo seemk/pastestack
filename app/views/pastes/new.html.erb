@@ -8,7 +8,7 @@
       <%= f.select(:language, ['None', 'Java', 'C++', 'Python'])  %>
       <%= f.select(:expiration, [['1 day', 1.days.from_now], ['1 week', 1.week.from_now], ['1 month', 1.month.from_now], ['Never', 1000.years.from_now]]) %>
 
-      <%= f.select(:exposure, [['Public', 1], ['Private', 0]]) %>
+      <%= f.select(:exposure, exposure_selection) %>
       <%= f.text_area :content, :placeholder => "- paste here -", :required => true %>
       <%= f.submit "push()" %>
     <% end %>
