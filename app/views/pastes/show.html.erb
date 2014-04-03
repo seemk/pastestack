@@ -1,5 +1,11 @@
 <% if @paste %>
-<%= render 'paste_content' %>
+    <% if @paste.private? %>
+        <% if signed_in? && current_user.id == @paste.user.id %>
+            <%= render 'paste_content' %>
+        <% else %>
+            <%= render 'private_paste' %>
+        <% end %>
+    <% end %>
 <% else %>
 Not found
 <% end %>

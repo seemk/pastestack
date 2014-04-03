@@ -17,6 +17,14 @@ class Paste < ActiveRecord::Base
         find_by_title(input)
     end
 
+    def private?
+        self.exposure == 0
+    end
+
+    def public?
+        self.exposure >= 1
+    end
+
 private
     def random_title
         self.title = (0...10).map { ('a'..'z').to_a[rand(26)] }.join if self.title.empty?
@@ -27,7 +35,9 @@ private
     end
 
     def notify_publisher
-        publisher = Rails.application.pastes_publisher
-        publisher.send_json_msg(self.to_json) unless publisher.nil?
+        if public?
+            publisher = Rails.application.pastes_publisher
+            publisher.send_json_msg(self.to_json) unless publisher.nil?
+        end
     end
 end

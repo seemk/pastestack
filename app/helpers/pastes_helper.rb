@@ -16,7 +16,7 @@ module PastesHelper
     end
 
     def recent_pastes
-        Paste.last(20).reverse
+        Paste.where{exposure >= 1}.last(20).reverse
     end
     
 end
