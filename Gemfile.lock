@@ -82,6 +82,10 @@ GEM
       guard (>= 1.1)
       spork (>= 0.8.4)
     hashie (2.0.5)
+    heroku_rails_deflate (1.0.3)
+      actionpack (>= 3.2.13)
+      activesupport (>= 3.2.13)
+      rack (>= 1.4.5)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -248,6 +252,7 @@ DEPENDENCIES
   faye-websocket
   guard-rspec
   guard-spork
+  heroku_rails_deflate
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-google-oauth2
