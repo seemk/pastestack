@@ -16,3 +16,4 @@ public/assets/
 
 # Do not remove
 config/config.yml
+.env

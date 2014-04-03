@@ -4,11 +4,16 @@ Pastestack::Application.routes.draw do
   resources :pastes
   get "pastes/new"
   root 'pastes#new'
+
   match '/search', to: 'searches#search', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'
   match '/villains', to: 'villains#list', via: 'get'
+
+  # Oauth
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
+  get 'auth/failure', to: 'pastes#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

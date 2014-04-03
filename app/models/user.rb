@@ -28,6 +28,20 @@ class User < ActiveRecord::Base
         self.token = User.hash(User.new_token)
     end
 
+    def self.from_omniauth(auth)
+        where(auth.slice(:email)).first_or_initialize.tap do |user|
+          user.email = auth.info.email
+          user.provider = auth.provider
+          user.uid = auth.uid
+          user.name = auth.info.name
+          user.password = SecureRandom.hex(16)
+          user.password_confirmation = user.password
+          user.oauth_token = auth.credentials.token
+          user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+          user.save!
+    end
+  end
+
 
 
 end

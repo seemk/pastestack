@@ -9,6 +9,8 @@ gem 'squeel'
 gem 'redis'
 gem 'faye-websocket'
 gem 'puma'
+gem "omniauth-google-oauth2"
+gem 'dotenv-rails'
 
 group :development, :test do
     gem 'sqlite3'
