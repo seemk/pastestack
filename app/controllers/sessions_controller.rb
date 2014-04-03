@@ -8,10 +8,8 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
             sign_in user
-            redirect_back_or(root_url)
-        else
-            render 'new'
         end
+        redirect_back_or(root_url)
     end
 
     def create_oauth
