@@ -1,27 +1,30 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
 
-<div id="signup_form" class="row">
-  <div class="span6 offset3">
+<div id="signup_form" >
+  <div class="signupform">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_msgs', object: @user %>
 
-      
+      <div>
       <%= f.text_field :name , placeholder: 'name' %>
-
-      
+     </div>
+     <div>
       <%= f.text_field :email , placeholder: 'email'%>
-
-  
+      </div>
+     <div>
       <%= f.password_field :password, placeholder: 'password' %>
-
-     
+    </div>
+     <div>
       <%= f.password_field :password_confirmation , placeholder: 'confirm password'%>
-
+     </div>
+    
       <%= f.submit "Create", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 <br>
-  <p>OR</p>
-  <%= link_to "Log in through Google", "/auth/google_oauth2" %>
+  <div id="GoogleAuth">
+  <%= link_to "Or log in through Google", "/auth/google_oauth2" %>
+
+  </div>
 </div>

@@ -18,22 +18,22 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
-input {
-  width: 320px;
-  height: auto !important;
-}
-
-#newuser {
- position:absolute;
-    top:15px;
-    right:250px;
-    width:200px;
-}
-
-.btn {
- position:absolute;
-    top:35px;
-    right:300px;
-    width:150px;
-}
+#signup_form  {
  
+  margin: 0px auto;
+}
+
+#GoogleAuth {
+  font-size: 2em;
+
+}
+
+#signup_form .btn {
+  top:65px;
+  left:250px;
+  width:320px;
+ }
+
+ .signupform {
+  margin-left: 10px;
+ }

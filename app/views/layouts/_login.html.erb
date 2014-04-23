@@ -4,7 +4,8 @@
       <%= f.text_field :email , placeholder: 'Email', :required => true %>
 <br>
       <%= f.password_field :password , placeholder: 'Password', :required => true %>
-      <%= f.submit "Log in", class: "btn btn-large btn-primary" %>
+<br>
+      <%= f.submit "Log in", class: "btn   btn-primary" %>
     <% end %>
     <%= link_to "Log in with google", "/auth/google_oauth2" %>
     <br/>New user? <%= link_to "Sign up now!", signup_path %>
