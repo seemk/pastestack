@@ -10,6 +10,29 @@ $ ->
       $(this).text("show")
     false
 
+  $("#search_field").autocomplete
+    source: (request, response) ->
+      $.ajax
+        url: "/ac_search"
+        dataType: "json"
+        data:
+          name: request.term
+
+        success: (data) ->
+          response data
+          return
+
+      return
+    minLength: 2
+    select: (event, ui) ->
+      title = ui.item.value
+      window.location.href = "/pastes/" + title
+      return
+
+  return
+
+  
+
 scheme = "<%= Rails.env['RACK_ENV'] == "production" ? "wss://" : "ws://" %>"
 uri = scheme + window.document.location.host + "/"
 ws = new WebSocket(uri)

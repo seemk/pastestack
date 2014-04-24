@@ -2,8 +2,6 @@ class PastesController < ApplicationController
     before_action :store_location
     
     def new
-        Rails.logger.debug("SCHEME:")
-        Rails.logger.debug(@scheme)
         @paste = Paste.new
     end
 

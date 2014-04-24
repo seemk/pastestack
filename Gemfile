@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.1'
 
 gem 'rails', '4.0.3'
 gem 'bcrypt-ruby'
@@ -9,7 +9,7 @@ gem 'squeel'
 gem 'redis'
 gem 'faye-websocket'
 gem 'puma'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
 group :development, :test do
@@ -30,6 +30,7 @@ gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 

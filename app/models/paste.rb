@@ -27,7 +27,16 @@ class Paste < ActiveRecord::Base
 
 private
     def random_title
-        self.title = (0...10).map { ('a'..'z').to_a[rand(26)] }.join if self.title.empty?
+        if self.title.empty?
+            self.title = (0...10).map { ('a' .. 'z').to_a[rand(26)] }.join
+            self.has_randomized_title = true
+        else
+            self.has_randomized_title = false
+        end
+        # The function is called at before_validation
+        # Returning false from it (setting has_randomized_title) to false
+        # will rollback the creation
+        return true
     end
 
     def convert_time

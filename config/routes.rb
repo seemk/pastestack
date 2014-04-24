@@ -6,6 +6,7 @@ Pastestack::Application.routes.draw do
   root 'pastes#new'
 
   match '/search', to: 'searches#search', via: 'get'
+  match '/ac_search', to: 'searches#autocomplete_search', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/login', to: 'sessions#new', via: 'get'
   match '/logout', to: 'sessions#destroy', via: 'delete'

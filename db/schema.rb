@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403102149) do
+ActiveRecord::Schema.define(version: 20140424081854) do
 
   create_table "pastes", force: true do |t|
     t.string   "content"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140403102149) do
     t.string   "language"
     t.datetime "expiration"
     t.integer  "exposure"
+    t.boolean  "has_randomized_title"
   end
 
   add_index "pastes", ["user_id", "created_at"], name: "index_pastes_on_user_id_and_created_at"
