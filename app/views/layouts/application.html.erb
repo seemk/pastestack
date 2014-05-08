@@ -2,24 +2,24 @@
 <html>
 <head>
   <title>Pastestack</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="login">
     <% if signed_in? %>
-	<div class="nologin">
-        Welcome, <%= current_user.name %>!
+	        Welcome, <%= current_user.name %>!
         <%= link_to "Sign out", logout_path, method: "delete" %>
-	</div>
-    <% else %>
+	<% else %>
         <%= render 'layouts/login' %>
     <% end %>
-
+	</div>
 	<div class="container">
     	<%= yield %>
 	</div>
-	<br>
+	 
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
 </body>

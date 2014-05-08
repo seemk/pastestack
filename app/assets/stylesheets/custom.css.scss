@@ -1,46 +1,51 @@
 @import "bootstrap";
 
+
+
  body{
-   background-color:#FFFFFF; 
+  background-color:#FFFFFF; 
+  font-family: Verdana, Arial;
 }
 
 .row   {
-position:relative;
-background-color:#FFFFFF;
-    padding-top: 5px;
-padding-left: 10px;
-    margin: 0px auto;
-  
-    width: 700px;
-    font-size: 1em;
-    color:#FF6400;
-   
+  position:relative;
+  background-color:#FFFFFF;
+  padding-top: 5px;
+  margin: 0px auto;
+  width:100%;
+  max-width: 400px;
+  font-size: 1em;
+  color:#FF6400;
+
 }
 
 
 input {
-  width: 320px;
+  width: 95%;
   height: auto !important;
 }
 
 .container {
-    background-color:#FFFFFF;
-    font-size: 1.0em;
-    font-family: Verdana, Arial;
-    margin: 0px auto;
-    width: 700px;
-    padding-top:10px;
-    padding-left: 0px;
+  position: relative;
+  background-color:#FFFFFF;
+  margin: 0px auto;
+  width:100%;
+  max-width: 900px;
+  font-size: 1em;
+
+  
+   
+    
+ 
+ 
 }
  
 
-.span6 offset3 {
-  padding-left: 0px;
-}
+
 
 .footer {
     background-color:#FFFFFF;
-width: 700px;    
+   
 margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -48,20 +53,11 @@ margin-left: auto;
      
 }
  
-.inputreg  {
-    display: inline-block; 
-    padding-left:5px;
-    border: 0px;
-}
-.inputreg label {
-    display: inline-block;
-    width: 70px; 
-    text-align: right;
-}
  
-.nologin {
+ 
+.login {
 background-color:#FFFFFF;
-width: 700px;    
+  vertical-align: baseline;
 margin-left: auto;
     margin-right: auto;
     text-align: center;
