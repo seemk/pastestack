@@ -31,6 +31,7 @@ group :test do
     gem 'rails-perftest'
     gem 'ruby-prof'
     gem 'celluloid'
+    gem "factory_girl_rails", "~> 4.0"
 end
 
 group :production, :test do
