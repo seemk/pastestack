@@ -1,4 +1,4 @@
-require 'securerandom'
+require 'date'
 
 FactoryGirl.define do
     factory :user do
@@ -9,7 +9,9 @@ FactoryGirl.define do
     end
 
     factory :paste do
-        title SecureRandom.hex(10)
+        title "sillytitle"
         content "SILLYCONTENT"
+        expiration Time.now.utc
+        exposure 1
     end
 end

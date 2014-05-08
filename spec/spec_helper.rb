@@ -37,6 +37,8 @@ Spork.prefork do
       #     --seed 1234
       config.order = "random"
       config.include Capybara::DSL
+
+      config.include FactoryGirl::Syntax::Methods
     end
 end
 
