@@ -5,7 +5,8 @@ describe User do
     before do
      @user = User.new(email: "test@testuser.com",
         password: "testpw",
-        password_confirmation: "testpw")
+        password_confirmation: "testpw",
+        name: "TESTUSER10001")
     end
 
     subject { @user }
@@ -20,6 +21,21 @@ describe User do
 
     describe "when email is not present" do
         before { @user.email = " " }
+        it { should_not be_valid }
+    end
+
+    describe "when email is not correct" do
+        before { @user.email = "@@mailinator....-asdö))" }
+        it { should_not be_valid }
+    end
+
+    describe "when name is too short" do
+        before { @user.name = "sh" }
+        it { should_not be_valid }
+    end
+
+    describe "when name is too long" do
+        before { @user.name = "long" * 10 }
         it { should_not be_valid }
     end
 
