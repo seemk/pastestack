@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424081854) do
+ActiveRecord::Schema.define(version: 20140508133505) do
 
   create_table "pastes", force: true do |t|
-    t.string   "content"
+    t.string   "content",              limit: 50000
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

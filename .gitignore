@@ -13,6 +13,7 @@ doc/
 .secret
 bundler_stubs/
 public/assets/
+dump.rdb
 
 # Do not remove
 config/config.yml

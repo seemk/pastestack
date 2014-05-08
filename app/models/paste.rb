@@ -27,7 +27,7 @@ class Paste < ActiveRecord::Base
 
 private
     def random_title
-        if self.title.empty?
+        if self.title.blank?
             self.title = (0...10).map { ('a' .. 'z').to_a[rand(26)] }.join
             self.has_randomized_title = true
         else
