@@ -1,11 +1,12 @@
+<% require 'coderay' %>
 Paste: <%= @paste.title %>
 Expires: <%= @paste.expiration %>
 Exposure: <%= exposure_str(@paste) %>
+Language: <%= @paste.language %>
 
 <div class="paste_content">
-    <ol class="content_list">
-        <% content_lines(@paste).each_with_index do |line, i| %>
-        <li class="content_line" id="l<%= i + 1 %>"> <%= line %> </li>
-        <% end %>
-    </ol>
+    <% code = @paste.content %>
+    <% cache Digest::SHA1.hexdigest(code) do %>
+        <%=raw CodeRay.scan(code, @paste.language_code).div(:line_numbers => :table) %>
+    <% end %>
 </div>

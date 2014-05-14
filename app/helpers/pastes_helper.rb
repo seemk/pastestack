@@ -26,5 +26,14 @@ module PastesHelper
             [['Public', 1]]
         end
     end
+
+    def available_languages
+        langs = ['C++', 'Python', 'Java', 'Ruby', 'HTML',
+         'JavaScript', 'Go', 'C', 'XML', 'PHP', 'Lua', 'Groovy',
+         'YAML', 'SQL', 'Clojure', 'CSS', 'JSON']
+         
+        langs.sort!
+        langs.unshift("None")
+    end
     
 end

@@ -1,4 +1,5 @@
 require 'spec_helper'
+include PastesHelper
 
 describe "PastePages" do
     
@@ -14,8 +15,10 @@ describe "PastePages" do
   end
 
   describe "paste creation" do
-      before { visit root_path }
-
+      before do 
+          visit root_path
+      end
+       
       let(:submit) { "push()" }
 
       describe "with no content" do
@@ -24,18 +27,44 @@ describe "PastePages" do
         end
       end
 
+      PastesHelper.available_languages.each do |lang|
+        eval("describe \"with language #{lang}\" do
+                before do
+                    fill_in \"paste_title\", with: \"title_#{lang}\"
+                    fill_in \"paste_content\", with: \"myspecialpaste\"
+                    select(lang, :from => \'paste_language\')
+                end
+
+                it \"should create a paste\" do
+                    expect { click_button submit}.to change(Paste, :count)
+                end
+
+                describe \"after creation\" do
+                    before { click_button submit }
+                    let(:paste) { Paste.find_by(:title => \"title_#{lang}\") }
+                    it { should have_content(paste.title) }
+                    it { should have_content(paste.content) }
+                end
+              end")
+      end
+
       describe "with valid content" do
 
           before do
+               
               fill_in "paste_title", with: "myspecialpaste"
               fill_in "paste_content", with: "my content\n\nyes"
+              
           end
+         
 
           it "should create a paste" do
+              
               expect { click_button submit}.to change(Paste, :count)
           end
 
           describe "after creation" do
+               
               before { click_button submit }
 
               let(:paste) { Paste.find_by(:title => "myspecialpaste" ) }
@@ -43,6 +72,7 @@ describe "PastePages" do
               it { should have_content(paste.title) }
               it { should have_content(paste.content) }
           end
+
       end
   end
 

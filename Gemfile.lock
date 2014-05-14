@@ -260,6 +260,7 @@ DEPENDENCIES
   capybara
   celluloid
   childprocess
+  coderay
   coffee-rails (= 4.0.1)
   dotenv-rails
   factory_girl_rails (~> 4.0)

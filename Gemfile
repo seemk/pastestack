@@ -10,6 +10,7 @@ gem 'faye-websocket'
 gem 'puma'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+gem 'coderay'
 
 gem 'squeel'
 

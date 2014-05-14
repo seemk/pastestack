@@ -25,6 +25,16 @@ class Paste < ActiveRecord::Base
         self.exposure >= 1
     end
 
+    def language_code
+        lang = language.downcase
+        sanitizations = { "c++" => "cpp" }.freeze
+        if sanitizations.has_key?(lang)
+            sanitizations[lang]
+        else
+            lang
+        end
+    end
+
 private
     def random_title
         if self.title.blank?
