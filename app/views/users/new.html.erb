@@ -7,20 +7,21 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_msgs', object: @user %>
 
-      <div>
+    <div>
       <%= f.text_field :name , placeholder: 'name' %>
-     </div>
-     <div>
+    </div>
+    <div>
       <%= f.text_field :email , placeholder: 'email'%>
-      </div>
-     <div>
+    </div>
+    <div>
       <%= f.password_field :password, placeholder: 'password' %>
     </div>
-     <div>
+    <div>
       <%= f.password_field :password_confirmation , placeholder: 'confirm password'%>
-     </div>
-    
-      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    </div>
+    <div id="btn">
+        <%= f.submit "Submit" %>
+    </div>
     <% end %>
   </div>
 <br>
