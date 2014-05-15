@@ -2,16 +2,11 @@
 
     <%= form_for(@paste) do |f| %>
       <%= render 'shared/error_msgs', object: @paste %>
-  
-<<<<<<< HEAD
-      <%= f.text_field :title, :placeholder => "- title -" %>
-      
-      <%= f.select(:language, available_languages)  %>
-=======
+
       <%= f.text_field :title, :placeholder => "- title -", :maxlength=>"35" %>
 
-      <%= f.select(:language, ['None', 'Java', 'C++', 'Python'])  %>
->>>>>>> Fingers crossed. UI adjustments again.
+      <%= f.select(:language, available_languages)  %>
+
       <%= f.select(:expiration, [['1 day', 1.days.from_now], ['1 week', 1.week.from_now], ['1 month', 1.month.from_now], ['Never', 1000.years.from_now]]) %>
 
       <%= f.select(:exposure, exposure_selection) %>
