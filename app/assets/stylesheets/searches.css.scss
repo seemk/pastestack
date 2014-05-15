@@ -1,3 +1,11 @@
 // Place all the styles related to the Searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#search_result_field {
+    text-align: center;
+}
+
+#search_result_field li{
+    list-style: none;
+ }

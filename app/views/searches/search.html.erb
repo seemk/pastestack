@@ -1,1 +1,9 @@
-<%= render @pastes %>
+<% provide(:title, 'Results') %>
+
+<div id="search_result_field">
+    <h1>Results</h1>
+    <%= render @pastes %>
+</div>
+<div class="flickr_pagination">
+    <%= will_paginate @pastes %>
+</div>

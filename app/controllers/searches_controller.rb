@@ -5,13 +5,14 @@ class SearchesController < ApplicationController
         query = params[:name]
         pastes = Paste.where{(exposure == 1) & 
                              (has_randomized_title == false) &
-                             (content =~ "%#{query}%")}
-        titles = pastes.map{|p| p.title}
+                             (content =~ "%#{query}%")}.limit(8)
+        titles = pastes.map{ |p| p.title }
         render json: titles
     end
 
     def search
        query = params[:search_field]
-       @pastes = Paste.where{(exposure == 1) & (content =~ "%#{query}%")}
+       @pastes = Paste.where{(exposure == 1) & (content =~ "%#{query}%")}.paginate(
+           :page => params[:page], :per_page => 25)
     end
 end
