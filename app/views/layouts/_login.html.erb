@@ -2,13 +2,13 @@
   
     <%= form_for(:session, url: sessions_path) do |f| %>
       <%= f.text_field :email , placeholder: 'Email', :required => true %>
-<br>
+
       <%= f.password_field :password , placeholder: 'Password', :required => true %>
 <br>
-      <%= f.submit "Log in", class: "btn   btn-primary" %>
+      <%= f.submit "Log in", id: "session_button" %>
     <% end %>
     <%= link_to "Log in with google", "/auth/google_oauth2" %>
-    <br/>New user? <%= link_to "Sign up now!", signup_path %>
+    | New user? <%= link_to "Sign up now!", signup_path %>
   </div>
  
 
