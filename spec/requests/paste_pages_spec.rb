@@ -27,25 +27,26 @@ describe "PastePages" do
         end
       end
 
+
       PastesHelper.available_languages.each do |lang|
-        eval("describe \"with language #{lang}\" do
-                before do
-                    fill_in \"paste_title\", with: \"title_#{lang}\"
-                    fill_in \"paste_content\", with: \"myspecialpaste\"
-                    select(lang, :from => \'paste_language\')
-                end
+          describe "with language #{lang}" do
+              before do
+                  fill_in "paste_title", with: "title_#{lang}"
+                  fill_in "paste_content", with: "myspecialpaste"
+                  select(lang, :from => 'paste_language')
+              end
 
-                it \"should create a paste\" do
-                    expect { click_button submit}.to change(Paste, :count)
-                end
+              it "should create a paste" do
+                  expect { click_button submit }.to change(Paste, :count)
+              end
 
-                describe \"after creation\" do
-                    before { click_button submit }
-                    let(:paste) { Paste.find_by(:title => \"title_#{lang}\") }
-                    it { should have_content(paste.title) }
-                    it { should have_content(paste.content) }
-                end
-              end")
+              describe "after creation" do
+                  before { click_button submit }
+                  let(:paste) { Paste.find_by(:title => "title_#{lang}") }
+                  it { should have_content(paste.title) }
+                  it { should have_content(paste.content) }
+              end
+          end
       end
 
       describe "with valid content" do
@@ -110,7 +111,7 @@ describe "PastePages" do
   describe "registering" do
     before { visit signup_path }
    
-    let(:register) { "Create" }
+    let(:register) { "Submit" }
 
     describe "with no information" do
         it "should not create an user" do
@@ -127,7 +128,7 @@ describe "PastePages" do
         end
 
         it "should not create an user" do
-            expect { click_button register}.not_to change(User, :count)
+            expect { click_button register }.not_to change(User, :count)
         end
     end
 
