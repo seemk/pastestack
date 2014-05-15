@@ -1,10 +1,19 @@
 <% provide(:title, 'Pastes') %>
 
-<% if signed_in? %>
-<h1>My pastes</h1>
-<%= render current_user.pastes %>
-<% end %>
 
-<h1>Public pastes</h1>
+<div id="paste_index">
+    <% if signed_in? %>
+        <h1>My pastes</h1>
+        <%= render @user_pastes %>
+        <div class="flickr_pagination">
+            <%= will_paginate @user_pastes, :param_name => 'priv_page' %>
+        </div>
+    <% end %>
 
-<%= render @pastes %>
+    <h1>Public pastes</h1>
+
+    <%= render @pastes %>
+</div>
+<div class="flickr_pagination">
+    <%= will_paginate @pastes, :param_name => 'public_page' %>
+</div>

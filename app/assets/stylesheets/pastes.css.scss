@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#paste_index {
+    text-align: center;
+}
 
-li{
-	margin-left: 10px;
+#paste_index li{
+    list-style: none;
  }

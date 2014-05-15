@@ -22,8 +22,21 @@ class PastesController < ApplicationController
     def destroy
     end
 
+    def public_pastes
+        Paste.where{ exposure == 1 }
+    end
+
+    def user_pastes
+        if signed_in?
+            current_user.pastes
+        else
+            []
+        end
+    end
+
     def index
-        @pastes = Paste.where{exposure == 1}
+        @user_pastes = user_pastes.page(params[:priv_page])
+        @pastes = public_pastes.page(params[:public_page])
     end
 
     def paste_params

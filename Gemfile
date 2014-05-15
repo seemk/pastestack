@@ -11,6 +11,7 @@ gem 'puma'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'coderay'
+gem 'will_paginate'
 
 gem 'squeel'
 

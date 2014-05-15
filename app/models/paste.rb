@@ -9,6 +9,8 @@ class Paste < ActiveRecord::Base
 
     after_save :notify_publisher
 
+    self.per_page = 15
+
     def to_param
         title
     end
