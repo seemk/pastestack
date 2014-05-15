@@ -1,6 +1,7 @@
 <%= form_tag('search', method: "get") do %>
     <%= text_field_tag :search_field, nil, 
         placeholder: "- search public pastes -",
-        required: true, :autocomplete => :off %>
-  <%= submit_tag "Find", :id => "button" %>
+        required: true, :autocomplete => :off,
+        :class => "form-control" %>
+    <%= submit_tag "Find", :id => "button", :class => "btn btn-default" %>
 <% end %>

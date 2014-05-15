@@ -3,18 +3,23 @@
     <%= form_for(@paste) do |f| %>
       <%= render 'shared/error_msgs', object: @paste %>
 
-      <%= f.text_field :title, :placeholder => "- title -", :maxlength=>"35" %>
+      <%= f.text_field :title, :placeholder => "- title -",
+          :maxlength=>"35", :class => "form-control" %>
 
-      <%= f.select(:language, available_languages)  %>
+      <%= f.select(:language, available_languages, {},
+                   { :class => "btn-xs btn-default dropdown-toggle" })  %>
 
       <%= f.select(:expiration, [['1 day', 1.days.from_now],
                                  ['1 week', 1.week.from_now],
                                  ['1 month', 1.month.from_now],
-                                 ['Never', 1000.years.from_now]]) %>
+                                 ['Never', 1000.years.from_now]],
+      {}, { :class => "btn-xs btn-default dropdown-toggle" }) %>
 
-      <%= f.select(:exposure, exposure_selection) %>
-      <%= f.text_area :content, :placeholder => "- paste here -", :required => true %>
-      <%= f.submit "push()" %>
+      <%= f.select(:exposure, exposure_selection, {},
+        { :class => "btn-xs btn-default dropdown-toggle" } ) %>
+      <%= f.text_area :content, :placeholder => "- paste here -",
+          :required => true, :class => "form-control" %>
+      <%= f.submit "push()", :class => "btn-xs btn-default" %>
     <% end %>
 
     <div id="search">

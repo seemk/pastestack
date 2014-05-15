@@ -8,19 +8,20 @@
       <%= render 'shared/error_msgs', object: @user %>
 
     <div>
-      <%= f.text_field :name , placeholder: 'name' %>
+        <%= f.text_field :name , placeholder: 'name', :class => "form-control" %>
     </div>
     <div>
-      <%= f.text_field :email , placeholder: 'email'%>
+        <%= f.text_field :email , placeholder: 'email', :class => "form-control" %>
     </div>
     <div>
-      <%= f.password_field :password, placeholder: 'password' %>
+        <%= f.password_field :password, placeholder: 'password', :class => "form-control" %>
     </div>
     <div>
-      <%= f.password_field :password_confirmation , placeholder: 'confirm password'%>
+        <%= f.password_field :password_confirmation , placeholder: 'confirm password',
+            :class => "form-control" %>
     </div>
     <div id="btn">
-        <%= f.submit "Submit" %>
+        <%= f.submit "Register", :class => "btn btn-default" %>
     </div>
     <% end %>
   </div>

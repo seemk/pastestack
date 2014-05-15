@@ -42,4 +42,5 @@ ws.onmessage = (message) ->
   paste_title = data["title"]
   newLink = "<a href=\"/pastes/#{paste_title}\">#{paste_title}</a>"
   $("#historyTable tbody").prepend "<tr><td>#{newLink}</td></tr>"
+  $("#historyTable tbody tr").slice(20).hide()
   return

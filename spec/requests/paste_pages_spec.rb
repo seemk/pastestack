@@ -111,7 +111,7 @@ describe "PastePages" do
   describe "registering" do
     before { visit signup_path }
    
-    let(:register) { "Submit" }
+    let(:register) { "Register" }
 
     describe "with no information" do
         it "should not create an user" do

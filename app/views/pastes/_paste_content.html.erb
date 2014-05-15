@@ -1,8 +1,7 @@
 <% require 'coderay' %>
-Paste: <%= @paste.title %>
-Expires: <%= @paste.expiration %>
-Exposure: <%= exposure_str(@paste) %>
-Language: <%= @paste.language %>
+<h4> <%= @paste.title %> | 
+Expires: <%= @paste.expiration.strftime('%e-%m-%y %H:%M') %> | <%= exposure_str(@paste) %> |  
+Language: <%= @paste.language %> </h4>
 
 <div class="paste_content">
     <% code = @paste.content %>
