@@ -6,31 +6,37 @@
   box-sizing: border-box;
 }
 
+html{
+  height:100%;
 
+}
 
 body{
   /*background-color:#969696; */
+      /* IE10 Consumer Preview */ 
+  background: -ms-linear-gradient(top, #FFFFFF 0%, #616161 100%);
+
+  /* Mozilla Firefox */ 
+  background: -moz-linear-gradient(top, #FFFFFF 0%, #616161 100%);
+
+  /* Opera */ 
+  background: -o-linear-gradient(top, #FFFFFF 0%, #616161 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #616161));
+
+  /* Webkit (Chrome 11+) */ 
+  background: -webkit-linear-gradient(top, #FFFFFF 0%, #616161 100%);
+
+  /* W3C Markup, IE10 Release Preview */ 
+  background: linear-gradient(to bottom, #FFFFFF 0%, #616161 100%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
   font-family: Verdana, Arial;
   font-size: 1,2em;
   min-width: 365px;
   min-height: 100%;
-  /* IE10 Consumer Preview */ 
-  background-image: -ms-linear-gradient(top, #FFFFFF 0%, #616161 100%);
 
-  /* Mozilla Firefox */ 
-  background-image: -moz-linear-gradient(top, #FFFFFF 0%, #616161 100%);
-
-  /* Opera */ 
-  background-image: -o-linear-gradient(top, #FFFFFF 0%, #616161 100%);
-
-  /* Webkit (Safari/Chrome 10) */ 
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #616161));
-
-  /* Webkit (Chrome 11+) */ 
-  background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #616161 100%);
-
-  /* W3C Markup, IE10 Release Preview */ 
-  background-image: linear-gradient(to bottom, #FFFFFF 0%, #616161 100%);
   a:link {color:#10E03E;}      /* unvisited link */
   a:visited {color:#10E03E;}  /* visited link */
   a:hover {color:#00A324;}  /* mouse over link */
