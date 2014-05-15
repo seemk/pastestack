@@ -30,12 +30,15 @@ class PastesController < ApplicationController
         if signed_in?
             current_user.pastes
         else
-            []
+            nil
         end
     end
 
     def index
-        @user_pastes = user_pastes.page(params[:priv_page])
+        pastes_for_user = user_pastes
+        if pastes_for_user
+            @user_pastes = pastes_for_user.page(params[:priv_page])
+        end
         @pastes = public_pastes.page(params[:public_page])
     end
 

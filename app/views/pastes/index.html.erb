@@ -4,7 +4,11 @@
 <div id="paste_index">
     <% if signed_in? %>
         <h1>My pastes</h1>
-        <%= render @user_pastes %>
+        <% if @user_pastes.empty? %>
+            None yet, why not <%= link_to "create", root_path %> one? 
+        <% else %>
+            <%= render :partial => 'user_paste', :collection => @user_pastes, :as => :paste %>
+        <% end %>
         <div class="flickr_pagination">
             <%= will_paginate @user_pastes, :param_name => 'priv_page' %>
         </div>
