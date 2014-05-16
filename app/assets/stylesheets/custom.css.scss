@@ -109,10 +109,15 @@ body {
 }
 .mainFrame textarea {
   float:left;
-  width: 100%;
+  max-width: 100%;
   min-height: 400px;
   resize: none;
-    
+ 
+}
+
+.paste_content {
+    width: 100%;
+    overflow: auto;
 }
    
 #search {
@@ -177,7 +182,4 @@ h1{
   @extend .has-error;
 }
 
-.code {
-    width: 100%;
-    height: 100%;
-}
+
