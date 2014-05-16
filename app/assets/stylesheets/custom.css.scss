@@ -6,9 +6,8 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   height:100%;
-
 }
 
 body {
@@ -25,7 +24,6 @@ body {
   a:visited {color:#E55810;}  /* visited link */
   a:hover {color:#FCFFFC;}  /* mouse over link */
   a:active {color:#FCFFFC;}  /* selected link */ 
-
 }
 
 .login {
@@ -70,7 +68,6 @@ body {
   margin-right: auto;
   padding: 5px;
   background-color:#DDD4BC;
-
 }
  
 
@@ -115,10 +112,6 @@ body {
  
 }
 
-.paste_content {
-    width: 100%;
-    overflow: auto;
-}
    
 #search {
   clear:both;
@@ -139,6 +132,7 @@ body {
   float:right;
   font-size: 1.3em;
 }
+
 #historyTable{
   width:100%;
   height:100%;
@@ -182,6 +176,3 @@ h1{
   @extend .has-error;
 }
 
-.CodeRay {
-    width: 100%;
-}

@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.paste_content {
+    width: 100%;
+    overflow: auto;
+}
+
 #paste_index {
     text-align: center;
 }
@@ -10,3 +15,8 @@
     list-style: none;
     font-size: 1.5em;
  }
+
+.code {
+    width: 100%;
+}
+
