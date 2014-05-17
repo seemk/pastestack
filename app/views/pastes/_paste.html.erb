@@ -1,9 +1,16 @@
-<li>
-  <%= link_to paste.title, paste %>
-  by
-  <% if paste.user %>
-  <%= paste.user.name %>
-  <% else %>
-  <%= "Anoynymous" %>
-  <% end %>
-</li>
+<% columns = 3 %>
+<% begins_row = (paste_counter % columns == 0) %>
+<% ends_row = (paste_counter % columns + 1 == columns || paste_counter == Paste.per_page - 1) %>
+<% if begins_row %>
+    <div class="row row-centered">
+<% end %>
+<div class="col-xs-3 col-centered">    
+    <% if for_user %>
+        <%= render :partial => 'user_paste', :locals => { :paste => paste } %>
+    <% else %>
+        <%= render :partial => 'paste_brief', :locals => { :paste => paste } %>
+    <% end %>
+</div>
+<% if ends_row %>
+    </div>
+<% end %>

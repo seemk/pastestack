@@ -1,7 +1,7 @@
 class Paste < ActiveRecord::Base
     belongs_to :user
     before_validation :random_title
-    before_save :convert_time
+    before_save :convert_time, :null_language
     default_scope -> { order('created_at DESC') }
     validates :content, presence: true
     validates :title, uniqueness: { case_sensitive: false }
@@ -28,6 +28,9 @@ class Paste < ActiveRecord::Base
     end
 
     def language_code
+        if language.nil?
+            return "none"
+        end
         lang = language.downcase
         sanitizations = { "c++" => "cpp" }.freeze
         if sanitizations.has_key?(lang)
@@ -48,6 +51,13 @@ private
         # The function is called at before_validation
         # Returning false from it (setting has_randomized_title) to false
         # will rollback the creation
+        return true
+    end
+
+    def null_language
+        if self.language.downcase == "none"
+            self.language = nil
+        end
         return true
     end
 

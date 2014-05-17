@@ -6,8 +6,13 @@
         <div class="row cutoff_row">
             <%= paste.language ? paste.language : 'None' %>
         </div>
-        <div class="row cutuff_row">
-            Expires: <%= paste.expiration.strftime('%e-%m-%y %H:%M') %>
+        <div class="row cutoff_row">
+            by 
+            <% if paste.user %>
+            <%= paste.user.name %>
+            <% else %>
+            <%= "Anoynymous" %>
+            <% end %>
         </div>
     </div>
 </div>

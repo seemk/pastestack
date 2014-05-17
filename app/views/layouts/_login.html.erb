@@ -9,7 +9,7 @@
             <div class='col-md-6'>
         <%= f.text_field :email , placeholder: 'Email',
             :required => true,
-            :class => 'col-md-6 form-control input-sm' %>
+            :class => 'form-control input-sm' %>
             </div>
             <div class='col-md-6'>
         <%= f.password_field :password , placeholder: 'Password',
@@ -24,7 +24,11 @@
 
     <% end %>
 
-<%= link_to 'Log in with google', '/auth/google_oauth2' %>
-| New user? <%= link_to 'Sign up now!', signup_path %>
-    <% end %>
+    <div class='row'>
+    <%= link_to 'Log in with google', '/auth/google_oauth2' %>
+    | New user? <%= link_to 'Sign up now!', signup_path %>
+    </div>
+
+
+<% end %>
 </div>

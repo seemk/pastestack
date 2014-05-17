@@ -11,12 +11,33 @@
     text-align: center;
 }
 
-#paste_index li{
-    list-style: none;
-    font-size: 1.5em;
- }
-
 .code {
     width: 100%;
 }
 
+.paste_brief_container {
+    width: 100%;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+}
+
+.paste_brief {
+    font-size: 1.4em;
+    padding: 6px;
+    margin: 2px;
+    background: #F5EACD;
+}
+
+.cutoff_row {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
