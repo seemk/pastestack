@@ -47,4 +47,8 @@ module SessionsHelper
         end
     end
 
+    def admin_rights
+        signed_in? && current_user.admin
+    end
+
 end

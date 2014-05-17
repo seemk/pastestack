@@ -16,7 +16,11 @@
         </div>
     <% end %>
 
-    <h1>Public pastes</h1>
+    <% if admin_rights %>
+        <h1>All pastes</h1>
+    <% else %>
+        <h1>Public pastes</h1>
+    <% end %>
     <div class="container paste_brief_container">
         <%= render @pastes  %>
     </div>

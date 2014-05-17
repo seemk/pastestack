@@ -27,7 +27,11 @@ class PastesController < ApplicationController
     end
 
     def public_pastes
-        Paste.where{ exposure == 1 }
+        if signed_in?
+            Paste.where{ (user_id != my{current_user.id}) | (user_id == nil) }.where{ exposure == 1 }
+        else
+            Paste.where{ exposure == 1 }
+        end
     end
 
     def user_pastes
@@ -43,7 +47,13 @@ class PastesController < ApplicationController
         if pastes_for_user
             @user_pastes = pastes_for_user.page(params[:priv_page])
         end
-        @pastes = public_pastes.page(params[:public_page])
+
+        if admin_rights
+            @pastes = Paste.where{(user_id != my{current_user.id}) | (user_id == nil)}
+        else
+            @pastes = public_pastes
+        end
+        @pastes = @pastes.page(params[:public_page])
     end
 
     def paste_params
