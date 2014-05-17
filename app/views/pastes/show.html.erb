@@ -1,6 +1,6 @@
 <% if @paste %>
     <% if @paste.private? %>
-        <% if signed_in? && current_user.id == @paste.user.id %>
+        <% if paste_ownder(@paste) %>
             <%= render 'paste_content' %>
         <% else %>
             <%= render 'private_paste' %>

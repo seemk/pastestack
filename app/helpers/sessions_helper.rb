@@ -51,4 +51,8 @@ module SessionsHelper
         signed_in? && current_user.admin
     end
 
+    def paste_ownder(paste)
+        admin_rights || (signed_in? && current_user.id == paste.user.id)
+    end
+
 end
