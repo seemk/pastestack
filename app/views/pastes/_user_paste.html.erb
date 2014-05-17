@@ -9,5 +9,8 @@
         <div class="row cutuff_row">
             Expires: <%= paste.expiration.strftime('%e-%m-%y %H:%M') %>
         </div>
+        <div class="row icon_row">
+            <%= render 'delete_paste', :paste => paste %>
+        </div>
     </div>
 </div>

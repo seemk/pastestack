@@ -20,6 +20,10 @@ class PastesController < ApplicationController
     end
 
     def destroy
+        paste = Paste.find(params[:id])
+        paste.destroy
+        redirect_url = request.referer.include?("#{paste.title}") ? pastes_url : :back
+        redirect_to redirect_url
     end
 
     def public_pastes

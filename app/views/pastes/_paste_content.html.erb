@@ -1,7 +1,13 @@
 <% require 'coderay' %>
-<h4> <%= @paste.title %> | 
-Expires: <%= @paste.expiration.strftime('%e-%m-%y %H:%M') %> | <%= exposure_str(@paste) %> |  
-Language: <%= @paste.language %> </h4>
+
+<div id='paste_info_container'>
+    <%= @paste.title %> | 
+    Expires: <%= @paste.expiration.strftime('%e-%m-%y %H:%M') %> | <%= exposure_str(@paste) %> |  
+    Language: <%= @paste.language ? @paste.language : 'None' %>
+    <% if signed_in? && @paste.user_id == current_user.id %>
+        <%= render 'delete_paste', :paste => @paste %>
+    <% end %>
+</div>
 
 <div class="paste_content">
     <% code = @paste.content %>
