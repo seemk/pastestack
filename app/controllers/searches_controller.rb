@@ -13,6 +13,6 @@ class SearchesController < ApplicationController
     def search
        query = params[:search_field]
        @pastes = Paste.where{(exposure == 1) & (content =~ "%#{query}%")}.paginate(
-           :page => params[:page], :per_page => 25)
+           :page => params[:page])
     end
 end

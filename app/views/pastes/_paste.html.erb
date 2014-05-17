@@ -5,10 +5,10 @@
     <div class="row row-centered">
 <% end %>
 <div class="col-xs-3 col-centered">    
-    <% if for_user %>
+    <% if defined?(for_user) && for_user %>
         <%= render :partial => 'user_paste', :locals => { :paste => paste } %>
     <% else %>
-        <%= render :partial => 'paste_brief', :locals => { :paste => paste } %>
+        <%= render :partial => 'pastes/paste_brief', :locals => { :paste => paste } %>
     <% end %>
 </div>
 <% if ends_row %>
