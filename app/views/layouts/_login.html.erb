@@ -1,15 +1,30 @@
-<div class="row">
-  
-    <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= f.text_field :email , placeholder: 'Email', :required => true %>
+<div class='login'>
+    <% if signed_in? %>
+        Welcome, <%= current_user.name %>!
+        <%= link_to "Sign out", logout_path, method: "delete" %>
+    <% else %>
+        <%= form_for(:session, url: sessions_path,
+             :html => { :class => 'container', :id => 'credentials' } ) do |f| %>
+        <div class='row'>
+            <div class='col-md-6'>
+        <%= f.text_field :email , placeholder: 'Email',
+            :required => true,
+            :class => 'col-md-6 form-control input-sm' %>
+            </div>
+            <div class='col-md-6'>
+        <%= f.password_field :password , placeholder: 'Password',
+            :required => true,
+            :class => 'form-control input-sm' %>
+            </div>
+        </div>
+    <div class='row'>
+    <%= f.submit 'Log in', id: 'session_button',
+        :class => 'btn-xs btn-default' %>
+    </div>
 
-      <%= f.password_field :password , placeholder: 'Password', :required => true %>
-<br>
-      <%= f.submit "Log in", id: "session_button" %>
     <% end %>
-    <%= link_to "Log in with google", "/auth/google_oauth2" %>
-    | New user? <%= link_to "Sign up now!", signup_path %>
-  </div>
- 
 
-
+<%= link_to 'Log in with google', '/auth/google_oauth2' %>
+| New user? <%= link_to 'Sign up now!', signup_path %>
+    <% end %>
+</div>

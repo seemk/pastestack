@@ -9,15 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="login">
-    <% if signed_in? %>
-	        Welcome, <%= current_user.name %>!
-        <%= link_to "Sign out", logout_path, method: "delete" %>
-	<% else %>
-        <%= render 'layouts/login' %>
-    <% end %>
-	</div>
-	<div class="container">
+    <%= render 'layouts/login' %>
+	<div class="container" id='page_container'>
     	<%= yield %>
 	</div>
 	 
