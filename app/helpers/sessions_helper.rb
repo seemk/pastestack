@@ -4,6 +4,7 @@ module SessionsHelper
         token = User.new_token
         cookies.permanent[:remember_token] = token
         user.update_attribute(:token, User.hash(token))
+        bind_anonymous_pastes(user)
         self.current_user = user
     end
 

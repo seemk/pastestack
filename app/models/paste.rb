@@ -55,8 +55,8 @@ private
     end
 
     def null_language
-        if self.language.downcase == "none"
-            self.language = nil
+        if self.language
+            self.language = nil if self.language.downcase == "none"
         end
         return true
     end

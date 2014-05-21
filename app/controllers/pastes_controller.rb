@@ -1,3 +1,5 @@
+include PastesHelper
+
 class PastesController < ApplicationController
     before_action :store_location
     before_action :require_user, only: [:edit, :update, :destroy]
@@ -14,6 +16,7 @@ class PastesController < ApplicationController
         end
         
         if @paste.save
+            store_anonymous_paste(@paste) unless signed_in?
             redirect_to @paste
         else
             render 'new'
