@@ -86,7 +86,7 @@ class PastesController < ApplicationController
 
     def require_user
         paste = Paste.find(params[:id])
-        unless (signed_in? && paste.user_id == current_user.id)
+        unless paste_owner(paste)
             redirect_to root_url
         end
     end
