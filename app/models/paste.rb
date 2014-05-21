@@ -7,7 +7,7 @@ class Paste < ActiveRecord::Base
     validates :title, uniqueness: { case_sensitive: false }
     validates :expiration, presence: true
 
-    after_save :notify_publisher
+    after_create :notify_publisher
 
     self.per_page = 15
 

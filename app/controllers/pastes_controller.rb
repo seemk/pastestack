@@ -1,5 +1,6 @@
 class PastesController < ApplicationController
     before_action :store_location
+    before_action :require_user, only: [:edit, :update, :destroy]
     
     def new
         @paste = Paste.new
@@ -16,6 +17,20 @@ class PastesController < ApplicationController
             redirect_to @paste
         else
             render 'new'
+        end
+     end
+    
+    def edit
+        @paste = Paste.find(params[:id])
+    end
+
+    def update
+        @paste = Paste.find(params[:id])
+
+        if @paste.update(paste_params)
+            redirect_to @paste
+        else
+            render 'edit'
         end
     end
 
@@ -62,6 +77,15 @@ class PastesController < ApplicationController
 
     def show
         @paste = Paste.find(params[:id])
+    end
+
+    private
+
+    def require_user
+        paste = Paste.find(params[:id])
+        unless (signed_in? && paste.user_id == current_user.id)
+            redirect_to root_url
+        end
     end
 
 end

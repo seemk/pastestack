@@ -6,6 +6,7 @@
     Language: <%= @paste.language ? @paste.language : 'None' %>
     <% if signed_in? && @paste.user_id == current_user.id %>
         <%= render 'delete_paste', :paste => @paste %>
+        <%= render 'edit_paste_btn', :paste => @paste %>
     <% end %>
 </div>
 
