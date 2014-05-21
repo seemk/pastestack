@@ -1,6 +1,6 @@
 <% if @paste %>
     <% if @paste.private? %>
-        <% if paste_ownder(@paste) %>
+        <% if paste_owner(@paste) %>
             <%= render 'paste_content' %>
         <% else %>
             <%= render 'private_paste' %>
