@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   height:100%;
 }
@@ -39,7 +40,10 @@ body {
   font-size: 12pt;
   width:70%;
 }
-
+.login .row {
+   margin-left:0px ;
+    margin-right:0px;
+}
 #google_login_btn {
     text-align: center;
 }
@@ -154,3 +158,34 @@ h1{
   @extend .has-error;
 }
 
+
+@media (max-width:480px) {
+  .login {
+    width:90%;
+  }
+  .login .row {
+    width:100%;
+ 
+  }
+  .mainFrame {
+  width:100%;
+  margin: 0px;
+  float:none;
+  position: relative;
+  
+  }
+  .sideFrame { 
+  width:100%;
+  margin: 0px;
+  float:none;
+  position: relative;
+  clear: both;
+  font-size: 1em;
+  }
+  #page_container {
+   width:90%;
+ }
+ .footer {
+  width:90% ;
+}
+}
