@@ -40,7 +40,10 @@ ws = new WebSocket(uri)
 ws.onmessage = (message) ->
   data = JSON.parse(message.data)
   paste_title = data["title"]
-  newLink = "<a href=\"/pastes/#{paste_title}\">#{paste_title}</a>"
+  paste_language = data["language"]
+  newLink = ""
+  newLink = "[" + paste_language + "] " if paste_language
+  newLink += "<a href=\"/pastes/#{paste_title}\">#{paste_title}</a>"
   $("#historyTable tbody").prepend "<tr><td>#{newLink}</td></tr>"
   $("#historyTable tbody tr").slice(20).hide()
   return

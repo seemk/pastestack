@@ -1,9 +1,15 @@
 <div class="sideFrame">
-        Recent public pastes:
+        Live paste feed:
         <table id="historyTable">
             <tbody>
-              <% recent_pastes.each do |p| %>
-              <tr><td>  <%= link_to p.title, p %> </td></tr>
+            <% recent_pastes.each do |p| %>
+                <tr><td>
+                  <div class="cutoff_row">
+                  <% if p.language %>
+                      [<%= p.language %>] 
+                  <% end %>
+                  <%= link_to p.title, p %> </td></tr>
+                  </div>
               <% end %>
             </tbody>
         </table>
