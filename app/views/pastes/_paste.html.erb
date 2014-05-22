@@ -4,7 +4,7 @@
 <% if begins_row %>
     <div class="row row-centered">
 <% end %>
-<div class="col-md-3 col-centered">    
+<div class="col-sm-3 col-centered">    
     <% if defined?(for_user) && for_user %>
         <%= render :partial => 'user_paste', :locals => { :paste => paste } %>
     <% else %>
