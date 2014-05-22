@@ -4,7 +4,7 @@ class Paste < ActiveRecord::Base
     before_save :convert_time, :null_language
     default_scope -> { order('created_at DESC') }
 
-    VALID_TITLE = /\A[^\?]\Z/
+    VALID_TITLE = /\A[^\?]+\Z/
     validates :content, presence: true
     validates :title, uniqueness: { case_sensitive: false },
         format: { with: VALID_TITLE }
