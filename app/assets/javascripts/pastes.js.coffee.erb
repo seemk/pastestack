@@ -1,37 +1,74 @@
 
 $ ->
-  $("#hide_history_btn").click ->
-    table = $("#historyTable")
-    if table.is ":hidden"
-      table.show()
-      $(this).text("hide")
-    else
-      table.hide()
-      $(this).text("show")
-    false
+    $("#hide_history_btn").click ->
+        table = $("#historyTable")
+        if table.is ":hidden"
+            table.show()
+            $(this).text("hide")
+        else
+            table.hide()
+            $(this).text("show")
+        false
 
-  $("#search_field").autocomplete
-    source: (request, response) ->
-      $.ajax
-        url: "/ac_search"
-        dataType: "json"
-        data:
-          name: request.term
+    $('#drop-area').bind "drop", (evt) ->
+        evt.stopPropagation()
+        evt.preventDefault()
+        origEvt = evt.originalEvent
+        files = origEvt.dataTransfer.files
+        return if files.length == 0
 
-        success: (data) ->
-          response data
-          return
+        file = files[0]
+        reader = new FileReader()
 
-      return
-    minLength: 2
-    select: (event, ui) ->
-      title = ui.item.value
-      window.location.href = "/pastes/" + title
-      return
+        progressBar = $('#file-progress-bar')
+        progressArea = $('#file-progress')
 
-  return
+        reader.onloadend = (evt) -> 
+            if evt.target.readyState is FileReader.DONE
+                $('#drop-area').val evt.target.result
+                progressBar.css('width', '100%')
+            return
 
-  
+        reader.onerror = (evt) ->
+            progressArea.css('display', 'none')
+            return
+
+        reader.onload = (evt) ->
+            progressArea.css('display', 'none')
+            return
+
+        reader.onprogress = (evt) ->
+            if evt.lengthComputable
+                loaded = Math.round((evt.loaded / evt.total) * 100)
+                console.log loaded
+                if loaded <= 100
+                    progressBar.css('width', loaded + '%')
+            return
+
+        reader.onloadstart = (evt) ->
+            progressArea.css('display', 'block')
+            return
+
+        reader.readAsText file
+        return
+
+    $("#search_field").autocomplete
+        source: (request, response) ->
+            $.ajax
+                url: "/ac_search"
+                dataType: "json"
+                data:
+                    name: request.term
+                success: (data) ->
+                    response data
+                    return
+        minLength: 2
+        select: (event, ui) ->
+            title = ui.item.value
+            window.location.href = "/pastes/" + title
+            return
+    return
+
 
 scheme = "<%= Rails.env['RACK_ENV'] == "production" ? "wss://" : "ws://" %>"
 uri = scheme + window.document.location.host + "/"
@@ -47,3 +84,4 @@ ws.onmessage = (message) ->
   $("#historyTable tbody").prepend "<tr><td>#{newLink}</td></tr>"
   $("#historyTable tbody tr").slice(20).hide()
   return
+

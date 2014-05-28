@@ -14,9 +14,14 @@
   {}, { :class => "btn-xs btn-default dropdown-toggle" }) %>
 
   <%= f.select(:exposure, exposure_selection, {},
-    { :class => "btn-xs btn-default dropdown-toggle" } ) %>
+               { :class => "btn-xs btn-default dropdown-toggle" } ) %>
+  <div id='file-progress' class="progress">
+      <div id='file-progress-bar' class="progress-bar progress-bar-default"
+          role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      </div>
+ </div>
   <%= f.text_area :content, :placeholder => "- paste here -",
-      :required => true, :class => "form-control" %>
+      :required => true, :class => "form-control", :id => "drop-area" %>
   <% if @paste.persisted? %>
       <%= f.submit "Update", :class => "btn-xs btn-default" %>
   <% else %>

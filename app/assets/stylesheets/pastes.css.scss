@@ -48,3 +48,21 @@
 #paste_info_container {
     font-size: 1.5em;
 }
+
+.progress {
+    height: 3px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+.progress-bar-default {
+    background-color: #E55810; 
+}
+
+#file-progress {
+    display: none;
+}
+
+#file-progress-bar {
+    width: 0%;
+}
