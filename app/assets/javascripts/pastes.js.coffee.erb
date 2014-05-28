@@ -26,6 +26,7 @@ $ ->
         reader.onloadend = (evt) -> 
             if evt.target.readyState is FileReader.DONE
                 $('#drop-area').val evt.target.result
+                $('#paste_title').val file.name
                 progressBar.css('width', '100%')
             return
 
