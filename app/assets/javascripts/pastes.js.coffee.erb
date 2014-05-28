@@ -23,10 +23,10 @@ $ ->
         progressBar = $('#file-progress-bar')
         progressArea = $('#file-progress')
 
-        reader.onloadend = (evt) -> 
+        reader.onloadend = (evt) ->
             if evt.target.readyState is FileReader.DONE
                 $('#drop-area').val evt.target.result
-                $('#paste_title').val file.name
+                $('#paste_title').val file.name.replace(/\.[^/.]+$/, "")
                 progressBar.css('width', '100%')
             return
 
