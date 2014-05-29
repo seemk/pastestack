@@ -59,7 +59,11 @@ module LiveUpdate
     end
 
     def send_json_msg(msg)
-      @redis.publish(CHANNEL, sanitize(msg))
+      begin
+        @redis.publish(CHANNEL, sanitize(msg))
+      rescue Redis::CommandError => err
+          Rails.logger.error err
+      end
     end
 
     private
