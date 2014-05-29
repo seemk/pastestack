@@ -62,7 +62,7 @@ module LiveUpdate
       begin
         @redis.publish(CHANNEL, sanitize(msg))
       rescue Redis::CommandError => err
-          Rails.logger.error err
+          Rails.logger.error "Error when publishing paste: #{err}"
       end
     end
 
