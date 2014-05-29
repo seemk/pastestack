@@ -24,11 +24,11 @@ class PastesController < ApplicationController
      end
     
     def edit
-        @paste = Paste.find(params[:id])
+        @paste = Paste.find_by_token(params[:id])
     end
 
     def update
-        @paste = Paste.find(params[:id])
+        @paste = Paste.find_by_token(params[:id])
 
         if @paste.update(paste_params)
             redirect_to @paste
@@ -38,9 +38,9 @@ class PastesController < ApplicationController
     end
 
     def destroy
-        paste = Paste.find(params[:id])
+        paste = Paste.find_by_token(params[:id])
         paste.destroy
-        redirect_url = request.referer.include?("#{paste.title}") ? pastes_url : :back
+        redirect_url = request.referer.include?("#{paste.token}") ? pastes_url : :back
         redirect_to redirect_url
     end
 
@@ -79,13 +79,13 @@ class PastesController < ApplicationController
     end
 
     def show
-        @paste = Paste.find(params[:id])
+        @paste = Paste.find_by_token(params[:id])
     end
 
     private
 
     def require_user
-        paste = Paste.find(params[:id])
+        paste = Paste.find_by_token(params[:id])
         unless paste_owner(paste)
             redirect_to root_url
         end

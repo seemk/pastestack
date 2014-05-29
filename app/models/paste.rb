@@ -1,21 +1,18 @@
 class Paste < ActiveRecord::Base
     belongs_to :user
-    before_validation :random_title
     before_save :convert_time, :null_language
     default_scope -> { order('created_at DESC') }
 
-    VALID_TITLE = /\A[^\?]+\Z/
     validates :content, presence: true
-    validates :title, uniqueness: { case_sensitive: false },
-        format: { with: VALID_TITLE }
     validates :expiration, presence: true
 
+    before_create :generate_token, :set_title
     after_create :notify_publisher
 
     self.per_page = 15
 
     def to_param
-        title
+        token
     end
 
     def self.find(input)
@@ -28,6 +25,10 @@ class Paste < ActiveRecord::Base
 
     def public?
         self.exposure >= 1
+    end
+
+    def has_title?
+        self.title.nil?
     end
 
     def language_code
@@ -44,18 +45,6 @@ class Paste < ActiveRecord::Base
     end
 
 private
-    def random_title
-        if self.title.blank?
-            self.title = (0...10).map { ('a' .. 'z').to_a[rand(26)] }.join
-            self.has_randomized_title = true
-        else
-            self.has_randomized_title = false
-        end
-        # The function is called at before_validation
-        # Returning false from it (setting has_randomized_title) to false
-        # will rollback the creation
-        return true
-    end
 
     def null_language
         if self.language
@@ -72,6 +61,17 @@ private
         if public?
             publisher = Rails.application.pastes_publisher
             publisher.send_json_msg(self.to_json) unless publisher.nil?
+        end
+    end
+
+    def set_title
+        self.title = 'Untitled' if self.title.blank?
+    end
+
+    def generate_token
+        self.token = loop do
+            random_token = SecureRandom.urlsafe_base64(10, false)
+            break random_token unless Paste.exists?(token: random_token)
         end
     end
 end

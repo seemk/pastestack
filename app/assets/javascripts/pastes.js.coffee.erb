@@ -53,6 +53,11 @@ $ ->
         reader.readAsText file
         return
 
+    makeTitle = (paste) ->
+        lang_part = ""
+        lang_part = "[" + paste.language + "] " if paste.language
+        lang_part + paste.title
+
     $("#search_field").autocomplete
         source: (request, response) ->
             $.ajax
@@ -61,12 +66,16 @@ $ ->
                 data:
                     name: request.term
                 success: (data) ->
-                    response data
+                    console.log data
+                    response $.map(data, (paste) ->
+                        label: makeTitle(paste)
+                        value: paste.token
+                    )
                     return
         minLength: 2
         select: (event, ui) ->
-            title = ui.item.value
-            window.location.href = "/pastes/" + title
+            token = ui.item.value
+            window.location.href = "/pastes/" + token
             return
     return
 

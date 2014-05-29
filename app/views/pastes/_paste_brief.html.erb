@@ -16,7 +16,7 @@
         </div>
         <div class="row icon_row">
         <% if signed_in? && current_user.admin %>
-            <%= render 'delete_paste', :paste => paste %>
+            <%= render 'pastes/delete_paste', :paste => paste %>
         <% end %>
         </div>
     </div>

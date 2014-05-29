@@ -4,10 +4,11 @@ class SearchesController < ApplicationController
     def autocomplete_search
         query = params[:name]
         pastes = Paste.where{(exposure == 1) & 
-                             (has_randomized_title == false) &
+                             (title != nil) &
                              (content =~ "%#{query}%")}.limit(8)
-        titles = pastes.map{ |p| p.title }
-        render json: titles
+        results = pastes.map{ |p| p.slice(:token, :title, :language) }
+        Rails.logger.debug results
+        render json: results
     end
 
     def search
